@@ -22,9 +22,19 @@ type APIConfig struct {
 	Port int `mapstructure:"port"`
 }
 
+type HubMulticastConfig struct {
+	Address string `mapstructure:"address"`
+	Port    int    `mapstructure:"port"`
+}
+
+type HubConfig struct {
+	Multicast HubMulticastConfig `mapstructure:"multicast"`
+}
+
 type AllConfig struct {
 	P2P P2PConfig `mapstructure:"p2p"`
 	API APIConfig `mapstructure:"api"`
+	Hub HubConfig `mapstructure:"hub"`
 }
 
 var Config AllConfig
