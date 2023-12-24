@@ -1,0 +1,131 @@
+syntax = "proto2";
+package api;
+
+option go_package = "./api";
+
+enum Direction {
+    UP = 1;
+    DOWN = 2;
+    LEFT = 3;
+    RIGHT = 4;
+}
+
+message APIRequest {
+    message ConnectMsg {}
+
+    message PingMsg {
+        required string token = 1;
+    }
+
+    message CreateGameMsg {
+        required string token = 1;
+        required string player_name = 2;
+        required string game_name = 3;
+        required int32 width = 4;
+        required int32 height = 5;
+        required int32 food_static = 6;
+        required int32 state_delay_ms = 7;
+    }
+
+    message DiscoverGamesMsg {
+        required string token = 1;
+    }
+
+    message JoinGameMsg {
+        required string token = 1;
+        required string player_name = 2;
+        required string game_name = 3;
+        required bool is_player = 4;
+    }
+
+    message SteerSnakeMsg {
+        required string token = 1;
+        required Direction direction = 2;
+    }
+
+    message GetGameStateMsg {
+        required string token = 1;
+    }
+
+    message ExitGameMsg {
+        required string token = 1;
+    }
+
+    message DisconnectMsg {
+        required string token = 1;
+    }
+
+    oneof Type {
+        ConnectMsg connect = 1;
+        PingMsg ping = 2;
+        CreateGameMsg create_game = 3;
+        DiscoverGamesMsg discover_games = 4;
+        JoinGameMsg join_game = 5;
+        SteerSnakeMsg steer_snake = 6;
+        GetGameStateMsg get_game_state = 7;
+        ExitGameMsg exit_game = 8;
+        DisconnectMsg disconnect = 9;
+    }
+}
+
+message APIResponse {
+    message SuccessConnectMsg {
+        required string token = 1;
+        required int32 timeout = 2;
+    }
+
+    message AckMsg {}
+
+    message ErrorMsg {
+        required string error_message = 1;
+    }
+
+    message GameListMsg {
+        message GameInfo {
+            required string gameName = 1;
+            required int32 width = 2;
+            required int32 height = 3;
+            required int32 stateDelay = 4;
+        }
+        repeated GameInfo games = 1;
+    }
+
+    message GameStateMsg {
+        enum Role {
+            NORMAL = 0;
+            MASTER = 1;
+            DEPUTY = 2;
+            VIEWER = 3;
+        }
+
+        message Coord {
+            required sint32 x = 1;
+            required sint32 y = 2;
+        }
+
+        message Snake {
+            required int32 player_id = 1;
+            repeated Coord points = 2;
+            required Direction head_direction = 3;
+        }
+
+        message Player {
+            required string name = 1;
+            required int32 id = 2;
+            required int32 score = 3;
+            required Role role = 4;
+        }
+
+        repeated Snake snakes = 2;
+        repeated Coord foods = 3;
+        repeated Player players = 4;
+    }
+
+    oneof Type {
+        SuccessConnectMsg successConnect = 1;
+        AckMsg ack = 2;
+        ErrorMsg error = 3;
+        GameListMsg game_list = 4;
+        GameStateMsg game_state = 5;
+    }
+}

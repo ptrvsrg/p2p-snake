@@ -1,0 +1,10 @@
+syntax = "proto2";
+package hub;
+
+option go_package = "./hub/protocol";
+
+message HubMessage {
+    required int32 version = 1;
+    required string id = 2;
+    required string api_url = 3;
+}

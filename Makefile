@@ -1,8 +1,8 @@
 # Target name (executable file)
-TARGET = server
+TARGET = p2p-snake-node
 
 # Paths and variables
-SRC_DIR = ../cmd/server
+SRC_DIR = ../cmd/p2p-snake
 BUILD_DIR = ./
 GO = go
 PROTOC = protoc
@@ -26,12 +26,6 @@ build: clean
 	@echo "Building the executable file..."
 	$(GO) mod download
 	$(GO) build $(BUILD_FLAGS) -o $(TARGET) $(SRC_DIR)
-
-# Running the built executable file
-.PHONY: run
-run: build
-	@echo "Running the executable file..."
-	./$(TARGET) -port $(PORT)
 
 # Help (display available commands)
 .PHONY: help

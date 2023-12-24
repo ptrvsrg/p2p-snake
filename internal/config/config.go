@@ -19,7 +19,9 @@ type P2PConfig struct {
 }
 
 type APIConfig struct {
-	Port int `mapstructure:"port"`
+	PublicUrl string `mapstructure:"public_url"`
+	Port      int    `mapstructure:"port"`
+	Timeout   int    `mapstructure:"timeout"`
 }
 
 type HubMulticastConfig struct {
@@ -45,11 +47,11 @@ func LoadConfig(filePath string) {
 
 	err := viper.ReadInConfig()
 	if err != nil {
-		log.Logger.Fatalf("Config error: %v", err)
+		log.Logger.Fatalf("Config parser error: %v", err)
 	}
 
 	err = viper.Unmarshal(&Config)
 	if err != nil {
-		log.Logger.Fatalf("Config error: %v", err)
+		log.Logger.Fatalf("Config parser error: %v", err)
 	}
 }

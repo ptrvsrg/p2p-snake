@@ -11,17 +11,20 @@ import (
 type CustomTextFormatter struct{}
 
 func (f *CustomTextFormatter) Format(entry *logrus.Entry) ([]byte, error) {
-	message := fmt.Sprintf("%s %5.5s %s\n",
-		entry.Time.Format("2006-01-02 15:04:05.000"), // Date-time
-		strings.ToUpper(entry.Level.String()),        // Logger level
-		entry.Message,                                // Logger message
+	message := fmt.Sprintf("%s %5s --- %s:%d : %s \n",
+		entry.Time.Format("2006-01-02 15:04:05.000"),
+		strings.ToUpper(entry.Level.String()),
+		entry.Caller.File,
+		entry.Caller.Line,
+		entry.Message,
 	)
 
 	return []byte(message), nil
 }
 
 var Logger = &logrus.Logger{
-	Out:       os.Stdout,
-	Level:     logrus.InfoLevel,
-	Formatter: &CustomTextFormatter{},
+	Out:          os.Stdout,
+	Level:        logrus.InfoLevel,
+	Formatter:    &CustomTextFormatter{},
+	ReportCaller: true,
 }
