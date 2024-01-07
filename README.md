@@ -2,19 +2,19 @@
 
 <p align="center">
    <a href="https://github.com/ptrvsrg/p2p-snake-node/graphs/contributors">
-        <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/ptrvsrg/p2p-snake-node?label=Contributors&labelColor=222222&color=77D4FC"/>
+        <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/ptrvsrg/p2p-snake-node?style=flat&label=Contributors&labelColor=222222&color=77D4FC"/>
    </a>
    <a href="https://github.com/ptrvsrg/p2p-snake-node/forks">
-        <img alt="GitHub forks" src="https://img.shields.io/github/forks/ptrvsrg/p2p-snake-node?label=Forks&labelColor=222222&color=77D4FC"/>
+        <img alt="GitHub forks" src="https://img.shields.io/github/forks/ptrvsrg/p2p-snake-node?style=flat&label=Forks&labelColor=222222&color=77D4FC"/>
    </a>
    <a href="https://github.com/ptrvsrg/p2p-snake-node/stargazers">
-        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ptrvsrg/p2p-snake-node?label=Stars&labelColor=222222&color=77D4FC"/>
+        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ptrvsrg/p2p-snake-node?style=flat&label=Stars&labelColor=222222&color=77D4FC"/>
    </a>
    <a href="https://github.com/ptrvsrg/p2p-snake-node/issues">
-        <img alt="GitHub issues" src="https://img.shields.io/github/issues/ptrvsrg/p2p-snake-node?label=Issues&labelColor=222222&color=77D4FC"/>
+        <img alt="GitHub issues" src="https://img.shields.io/github/issues/ptrvsrg/p2p-snake-node?style=flat&label=Issues&labelColor=222222&color=77D4FC"/>
    </a>
    <a href="https://github.com/ptrvsrg/p2p-snake-node/pulls">
-        <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/ptrvsrg/p2p-snake-node?label=Pull%20Requests&labelColor=222222&color=77D4FC"/>
+        <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/ptrvsrg/p2p-snake-node?style=flat&label=Pull%20Requests&labelColor=222222&color=77D4FC"/>
    </a>
 </p>
 
